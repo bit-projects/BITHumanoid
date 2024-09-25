@@ -28,6 +28,8 @@ stance_deprecated:
 stance:
   rkneepitch: [0.1]
   lkneepitch: [0.1]
+  LArm2: [1.57]
+  RArm2: [1.57]
 
 
 # Change the default attitude
@@ -53,6 +55,18 @@ convexHulls:
   LArm1: [LArm1, "@CMAKE_CURRENT_SOURCE_DIR@/convex/bit_humanoid/LArm1-ch.txt"]
   RArm0: [RArm0, "@CMAKE_CURRENT_SOURCE_DIR@/convex/bit_humanoid/RArm0-ch.txt"]
   RArm1: [RArm1, "@CMAKE_CURRENT_SOURCE_DIR@/convex/bit_humanoid/RArm1-ch.txt"]
+  LArm2: [LArm2, "@CMAKE_CURRENT_SOURCE_DIR@/convex/bit_humanoid/LArm2-ch.txt"]
+  LArm3: [LArm3, "@CMAKE_CURRENT_SOURCE_DIR@/convex/bit_humanoid/LArm3-ch.txt"]
+  RArm2: [RArm2, "@CMAKE_CURRENT_SOURCE_DIR@/convex/bit_humanoid/RArm2-ch.txt"]
+  RArm3: [RArm3, "@CMAKE_CURRENT_SOURCE_DIR@/convex/bit_humanoid/RArm3-ch.txt"]
+  LArm4: [LArm4, "@CMAKE_CURRENT_SOURCE_DIR@/convex/bit_humanoid/LArm4-ch.txt"]
+  LArm5: [LArm5, "@CMAKE_CURRENT_SOURCE_DIR@/convex/bit_humanoid/LArm5-ch.txt"]
+  RArm4: [RArm4, "@CMAKE_CURRENT_SOURCE_DIR@/convex/bit_humanoid/RArm4-ch.txt"]
+  RArm5: [RArm5, "@CMAKE_CURRENT_SOURCE_DIR@/convex/bit_humanoid/RArm5-ch.txt"]
+  LArm6: [LArm6, "@CMAKE_CURRENT_SOURCE_DIR@/convex/bit_humanoid/LArm6-ch.txt"]
+  LArm7: [LArm7, "@CMAKE_CURRENT_SOURCE_DIR@/convex/bit_humanoid/LArm7-ch.txt"]
+  RArm6: [RArm6, "@CMAKE_CURRENT_SOURCE_DIR@/convex/bit_humanoid/RArm6-ch.txt"]
+  RArm7: [RArm7, "@CMAKE_CURRENT_SOURCE_DIR@/convex/bit_humanoid/RArm7-ch.txt"]
 # Default setting for the collision parameters
 default-col: &default-col
   iDist: 0.02
@@ -79,6 +93,24 @@ minimalSelfCollisions:
     <<: *default-col
   - body1: lanklepitch
     body2: rankleroll
+    <<: *default-col
+  - body1: LArm4
+    body2: torso
+    <<: *default-col
+  - body1: RArm4
+    body2: torso
+    <<: *default-col
+  - body1: LArm2
+    body2: torso
+    <<: *default-col
+  - body1: RArm2
+    body2: torso
+    <<: *default-col
+  - body1: LArm3
+    body2: torso
+    <<: *default-col
+  - body1: RArm3
+    body2: torso
     <<: *default-col
 bodySensors:
   - name: FloatingBase
