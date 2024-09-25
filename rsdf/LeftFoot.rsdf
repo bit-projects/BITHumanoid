@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<robot name="LeftHand">
+
+  <planar_surface name="LeftFoot" link="lankleroll">
+    <origin rpy="0.0 -0.0 0.0" xyz="0.12 -0.00 -0.077" />
+    <points>
+      <point xy="0.12 0.05" />
+      <point xy="0.12 -0.05" />
+      <point xy="-0.1 -0.05" />
+      <point xy="-0.1 0.05" />
+    </points>
+    <material name="plastic" />
+  </planar_surface>
+
+  <planar_surface name="LeftFootFront" link="lankleroll">
+    <origin rpy="0.0 -0.0 0.0" xyz="0.24 -0.00 -0.08" />
+    <points>
+       <point xy="0 -0.05242723971605301" />
+       <point xy="0 0.05357016623020172" />
+    </points>
+    <material name="plastic" />
+  </planar_surface>
+
+  <planar_surface name="LeftFootBack" link="lankleroll">
+    <origin rpy="0.0 -0.0 0.0" xyz="0.02 -0.00 -0.08" />
+    <points>
+       <point xy="0 -0.05357016623020172" />
+       <point xy="0 0.052427247166633606" />
+    </points>
+    <material name="plastic" />
+  </planar_surface>
+
+</robot>

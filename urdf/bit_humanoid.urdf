@@ -1,0 +1,1048 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="bit_humanoid">
+  <mujoco>
+        <compiler
+        meshdir="../meshes/"
+        balanceinertia="true"
+        discardvisual="true" />
+  </mujoco>
+  <link name="base_link"/>
+  <joint name="torso" type="fixed">
+    <parent link="base_link"/>
+    <child link="torso"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+  <link
+    name="torso">
+    <inertial>
+      <origin
+        xyz="-0.0066717767331129 0.00092150806408371 0.373214317946892"
+        rpy="0 0 0" />
+      <mass
+        value="19.9083785332556" />
+      <inertia
+        ixx="0.107504070086252"
+        ixy="9.86156679026964E-06"
+        ixz="0.00411534849426708"
+        iyy="0.0781594218341379"
+        iyz="6.63917270840747E-05"
+        izz="0.0978308256367201" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/torso.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/torso.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="rhipyaw">
+    <inertial>
+      <origin
+        xyz="-0.00566950229469464 -2.01306012900804E-07 -0.0315530536874254"
+        rpy="0 0 0" />
+      <mass
+        value="1.29354905501375" />
+      <inertia
+        ixx="0.00149629906740707"
+        ixy="1.72511544778979E-07"
+        ixz="-0.000252083153835543"
+        iyy="0.00232036911200236"
+        iyz="4.57109065479072E-09"
+        izz="0.00204600993939266" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/rhipyaw.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/rhipyaw.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rhipyaw"
+    type="revolute">
+    <origin
+      xyz="-0.00100000000000043 -0.100000000000074 0.154500000000049"
+      rpy="0 0 0" />
+    <parent
+      link="torso" />
+    <child
+      link="rhipyaw" />
+    <axis
+      xyz="0 0 -1" />
+    <limit upper="0.59" lower="-0.59" effort="140" velocity="24.5"/>
+  </joint>
+  <link
+    name="rhiproll">
+    <inertial>
+      <origin
+        xyz="0.05476705323906 -0.00471997482112012 -1.56068039575893E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.663140744464748" />
+      <inertia
+        ixx="0.00107233708845933"
+        ixy="1.89604005078488E-05"
+        ixz="-1.85615311001101E-08"
+        iyy="0.00095387201342508"
+        iyz="-1.47696849276024E-09"
+        izz="0.00102671170238701" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/rhiproll.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/rhiproll.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rhiproll"
+    type="revolute">
+    <origin
+      xyz="-0.0985749999999924 0 -0.154500000000005"
+      rpy="0 0 0" />
+    <parent
+      link="rhipyaw" />
+    <child
+      link="rhiproll" />
+    <axis
+      xyz="-1 0 0" />
+    <limit upper="0.5582" lower="-0.3489" effort="140" velocity="24.5"/>
+  </joint>
+  <link
+    name="rhippitch">
+    <inertial>
+      <origin
+        xyz="0.00987779305511675 0.00902905394346111 -0.124101988790807"
+        rpy="0 0 0" />
+      <mass
+        value="1.93907371498769" />
+      <inertia
+        ixx="0.0134937741610584"
+        ixy="-1.35378608466847E-07"
+        ixz="0.000257746171798267"
+        iyy="0.0126883217770773"
+        iyz="1.28868895528312E-06"
+        izz="0.00347473577753381" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/rhippitch.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/rhippitch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rhippitch"
+    type="revolute">
+    <origin
+      xyz="0.098575 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="rhiproll" />
+    <child
+      link="rhippitch" />
+    <axis
+      xyz="0 1 0" />
+    <limit upper="0.4884" lower="-1.57" effort="280" velocity="24.5"/>
+  </joint>
+  <link
+    name="rkneepitch">
+    <inertial>
+      <origin
+        xyz="0.00299332103529367 -0.000641405111911519 -0.127537109943688"
+        rpy="0 0 0" />
+      <mass
+        value="1.27080981765739" />
+      <inertia
+        ixx="0.00850588746449565"
+        ixy="-4.38733660606253E-08"
+        ixz="-5.69730653974445E-05"
+        iyy="0.00818219248636572"
+        iyz="8.5569427585091E-09"
+        izz="0.00132598333520248" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/rkneepitch.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/rkneepitch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rkneepitch"
+    type="revolute">
+    <origin
+      xyz="0.00754465241400107 0.00335999999997089 -0.374942885683647"
+      rpy="0 0 0" />
+    <parent
+      link="rhippitch" />
+    <child
+      link="rkneepitch" />
+    <axis
+      xyz="0 1 0" />
+    <limit lower="0.09" upper="2.355" effort="280" velocity="24.5"/>
+  </joint>
+  <link
+    name="ranklepitch">
+    <inertial>
+      <origin
+        xyz="-0.0204100817441415 9.68619875778981E-05 0.00245427998168624"
+        rpy="0 0 0" />
+      <mass
+        value="0.178163381724389" />
+      <inertia
+        ixx="3.73863427586149E-05"
+        ixy="2.55215933586501E-09"
+        ixz="1.93173214910158E-06"
+        iyy="0.000148806623068618"
+        iyz="1.51210981157756E-11"
+        izz="0.000147709729899255" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/ranklepitch.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/ranklepitch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ranklepitch"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.35"
+      rpy="0 0 0" />
+    <parent
+      link="rkneepitch" />
+    <child
+      link="ranklepitch" />
+    <axis
+      xyz="0 -1 0" />
+    <limit lower="-0.75" upper="1.134" effort="140" velocity="4.5"/>
+  </joint>
+  <link
+    name="rankleroll">
+    <inertial>
+      <origin
+        xyz="0.103469102108915 0.000115476592014899 -0.0513475401619117"
+        rpy="0 0 0" />
+      <mass
+        value="1.59353254161456" />
+      <inertia
+        ixx="0.000994581270897754"
+        ixy="-2.38612847445325E-05"
+        ixz="-8.17885663635239E-05"
+        iyy="0.00439916187133898"
+        iyz="-2.65425473487945E-06"
+        izz="0.00514840990630437" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/rankleroll.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/rankleroll.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rankleroll"
+    type="revolute">
+    <origin
+      xyz="-0.09675 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="ranklepitch" />
+    <child
+      link="rankleroll" />
+    <axis
+      xyz="1 0 0" />
+    <limit lower="-0.314" upper="0.314" effort="140" velocity="24.5"/>
+  </joint>
+  <link
+    name="lhipyaw">
+    <inertial>
+      <origin
+        xyz="-0.00566950229469464 2.01306012900804E-07 -0.0315530536874254"
+        rpy="0 0 0" />
+      <mass
+        value="1.29354905501375" />
+      <inertia
+        ixx="0.00149629906740707"
+        ixy="-1.72511544778979E-07"
+        ixz="-0.000252083153835543"
+        iyy="0.00232036911200236"
+        iyz="-4.57109065479072E-09"
+        izz="0.00204600993939266" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/lhipyaw.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/lhipyaw.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lhipyaw"
+    type="revolute">
+    <origin
+      xyz="-0.00100000000001218 0.0999999999999262 0.154500000000032"
+      rpy="0 0 0" />
+    <parent
+      link="torso" />
+    <child
+      link="lhipyaw" />
+    <axis
+      xyz="0 0 1" />
+    <limit lower="-0.59" upper="0.59" effort="140" velocity="24.5"/>
+  </joint>
+  <link
+    name="lhiproll">
+    <inertial>
+      <origin
+        xyz="0.05476705323906 0.00471997482112012 -1.56068039575893E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.663140744464748" />
+      <inertia
+        ixx="0.00107233708845933"
+        ixy="-1.89604005078488E-05"
+        ixz="-1.85615311001101E-08"
+        iyy="0.00095387201342508"
+        iyz="1.47696849276024E-09"
+        izz="0.00102671170238701" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/lhiproll.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/lhiproll.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lhiproll"
+    type="revolute">
+    <origin
+      xyz="-0.0985749999999926 0 -0.154500000000005"
+      rpy="0 0 0" />
+    <parent
+      link="lhipyaw" />
+    <child
+      link="lhiproll" />
+    <axis
+      xyz="1 0 0" />
+    <limit lower="-0.3489" upper="0.5582" effort="140" velocity="24.5"/>
+  </joint>
+  <link
+    name="lhippitch">
+    <inertial>
+      <origin
+        xyz="0.00987779305511675 -0.00902905394346111 -0.124101988790807"
+        rpy="0 0 0" />
+      <mass
+        value="1.93907371498769" />
+      <inertia
+        ixx="0.0134937741610584"
+        ixy="1.35378608466847E-07"
+        ixz="0.000257746171798267"
+        iyy="0.0126883217770773"
+        iyz="-1.28868895528312E-06"
+        izz="0.00347473577753381" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/lhippitch.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/lhippitch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lhippitch"
+    type="revolute">
+    <origin
+      xyz="0.0985749999999998 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="lhiproll" />
+    <child
+      link="lhippitch" />
+    <axis
+      xyz="0 1 0" />
+    <limit lower="-1.57" upper="0.4884" effort="280" velocity="24.5"/>
+  </joint>
+  <link
+    name="lkneepitch">
+    <inertial>
+      <origin
+        xyz="0.00299332103529367 0.000641405111911519 -0.127537109943688"
+        rpy="0 0 0" />
+      <mass
+        value="1.27080981765739" />
+      <inertia
+        ixx="0.00850588746449565"
+        ixy="4.38733660606253E-08"
+        ixz="-5.69730653974445E-05"
+        iyy="0.00818219248636572"
+        iyz="-8.5569427585091E-09"
+        izz="0.00132598333520248" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/lkneepitch.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/lkneepitch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lkneepitch"
+    type="revolute">
+    <origin
+      xyz="0.00754465241400048 -0.00336000000003525 -0.374942885683646"
+      rpy="0 0 0" />
+    <parent
+      link="lhippitch" />
+    <child
+      link="lkneepitch" />
+    <axis
+      xyz="0 1 0" />
+    <limit lower="0.09" upper="2.355" effort="280" velocity="24.5"/>
+  </joint>
+  <link
+    name="lanklepitch">
+    <inertial>
+      <origin
+        xyz="-0.0204100817441415 -9.68619875778981E-05 0.00245427998168624"
+        rpy="0 0 0" />
+      <mass
+        value="0.178163381724389" />
+      <inertia
+        ixx="3.73863427586149E-05"
+        ixy="-2.55215933586501E-09"
+        ixz="1.93173214910158E-06"
+        iyy="0.000148806623068618"
+        iyz="-1.51210981157756E-11"
+        izz="0.000147709729899255" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/lanklepitch.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/lanklepitch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lanklepitch"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.35"
+      rpy="0 0 0" />
+    <parent
+      link="lkneepitch" />
+    <child
+      link="lanklepitch" />
+    <axis
+      xyz="0 -1 0" />
+    <limit lower="-0.75" upper="1.134" effort="140" velocity="4.5"/>
+  </joint>
+  <link
+    name="lankleroll">
+    <inertial>
+      <origin
+        xyz="0.10537034457661 0.000141311891230761 -0.0521031202317045"
+        rpy="0 0 0" />
+      <mass
+        value="1.57030439282328" />
+      <inertia
+        ixx="0.000986318456173677"
+        ixy="-2.17189904866915E-05"
+        ixz="-8.16560376211645E-05"
+        iyy="0.00439342301609435"
+        iyz="-3.28901888245103E-06"
+        izz="0.00514256952995624" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/lankleroll.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/lankleroll.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lankleroll"
+    type="revolute">
+    <origin
+      xyz="-0.096749999999996 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="lanklepitch" />
+    <child
+      link="lankleroll" />
+    <axis
+      xyz="1 0 0" />
+    <limit lower="-0.314" upper="0.314" effort="140" velocity="24.5"/>
+  </joint>
+#<!--placeholder for wheels-->
+
+  <link
+    name="LWheel">
+    <inertial>
+      <origin
+        xyz="-2.1376E-07 0.025186 -0.021108"
+        rpy="0 0 0" />
+      <mass
+        value="0.59356" />
+      <inertia
+        ixx="0.0012661"
+        ixy="-9.8019E-09"
+        ixz="-1.2951E-08"
+        iyy="0.00056135"
+        iyz="-0.00021122"
+        izz="0.0011817" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/LWheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/LWheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LWheel"
+    type="revolute">
+    <origin
+      xyz="0 0.1 -0.05"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="lkneepitch" />
+    <child
+      link="LWheel" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-3.107"
+      upper="3.107"
+      effort="60"
+      velocity="1" />
+  </joint>
+
+  <link
+    name="RWheel">
+    <inertial>
+      <origin
+        xyz="-2.1376E-07 0.025186 -0.021108"
+        rpy="0 0 0" />
+      <mass
+        value="0.59356" />
+      <inertia
+        ixx="0.0012661"
+        ixy="-9.8019E-09"
+        ixz="-1.2951E-08"
+        iyy="0.00056135"
+        iyz="-0.00021122"
+        izz="0.0011817" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/RWheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/RWheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RWheel"
+    type="revolute">
+    <origin
+      xyz="0 -0.1 -0.05"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="rkneepitch" />
+    <child
+      link="RWheel" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-3.107"
+      upper="3.107"
+      effort="60"
+      velocity="1" />
+  </joint>
+ 
+#<!--Left arm, manufactured by RealMan-->
+  <link
+    name="LArm0">
+    <inertial>
+      <origin
+        xyz="-0.00043233 -3.2765E-05 0.059942"
+        rpy="0 0 0" />
+      <mass
+        value="0.84108" />
+      <inertia
+        ixx="0.0017261"
+        ixy="2.4864E-06"
+        ixz="-3.6752E-05"
+        iyy="0.0017099"
+        iyz="1.7199E-06"
+        izz="0.00090404" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/LArm0.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/LArm0.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LArm0"
+    type="fixed">
+    <origin
+      xyz="-0.02 0.0175 0.5"
+      rpy="-1.5708 1.57 0" />
+    <parent
+      link="torso" />
+    <child
+      link="LArm0" />
+  </joint>
+  <link
+    name="LArm1">
+    <inertial>
+      <origin
+        xyz="-2.1376E-07 0.025186 -0.021108"
+        rpy="0 0 0" />
+      <mass
+        value="0.59356" />
+      <inertia
+        ixx="0.0012661"
+        ixy="-9.8019E-09"
+        ixz="-1.2951E-08"
+        iyy="0.00056135"
+        iyz="-0.00021122"
+        izz="0.0011817" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/LArm1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/LArm1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LArm1"
+    type="revolute">
+    <origin
+      xyz="0 0 0.2405"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="LArm0" />
+    <child
+      link="LArm1" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-3.107"
+      upper="3.107"
+      effort="60"
+      velocity="1" />
+  </joint>
+
+#<!--Right arm, manufactured by RealMan-->
+  <link
+    name="RArm0">
+    <inertial>
+      <origin
+        xyz="-0.00043233 -3.2765E-05 0.059942"
+        rpy="0 0 0" />
+      <mass
+        value="0.84108" />
+      <inertia
+        ixx="0.0017261"
+        ixy="2.4864E-06"
+        ixz="-3.6752E-05"
+        iyy="0.0017099"
+        iyz="1.7199E-06"
+        izz="0.00090404" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/RArm0.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/RArm0.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RArm0"
+    type="fixed">
+    <origin
+      xyz="-0.02 -0.0175 0.5"
+      rpy="1.5708 1.57 0" />
+    <parent
+      link="torso" />
+    <child
+      link="RArm0" />
+  </joint>
+  <link
+    name="RArm1">
+    <inertial>
+      <origin
+        xyz="-2.1376E-07 0.025186 -0.021108"
+        rpy="0 0 0" />
+      <mass
+        value="0.59356" />
+      <inertia
+        ixx="0.0012661"
+        ixy="-9.8019E-09"
+        ixz="-1.2951E-08"
+        iyy="0.00056135"
+        iyz="-0.00021122"
+        izz="0.0011817" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/RArm1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bit_humanoid/meshes/RArm1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RArm1"
+    type="revolute">
+    <origin
+      xyz="0 0 0.2405"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="RArm0" />
+    <child
+      link="RArm1" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-3.107"
+      upper="3.107"
+      effort="60"
+      velocity="1" />
+  </joint>
+
+</robot>

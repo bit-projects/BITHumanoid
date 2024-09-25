@@ -1,0 +1,124 @@
+# Where the robot data is located
+# The JSON loader expects the data to be in certain locations relative to this path as described in:
+# https://jrl-umi3218.github.io/mc_rtc/tutorials/advanced/new-robot.html#organization-of-your-robot-description-package
+path: "@CMAKE_CURRENT_SOURCE_DIR@"
+# Name of the RobotModule/Default name of the robot when loaded with this module
+name: bit_humanoid
+# Where the URDF is located
+urdf_path: "@CMAKE_CURRENT_SOURCE_DIR@/urdf/bit_humanoid.urdf"
+rsdf_dir: "@CMAKE_CURRENT_SOURCE_DIR@/rsdf/"
+
+ref_joint_order: [  
+  
+  rhipyaw,rhiproll,rhippitch,rkneepitch,ranklepitch,rankleroll,RWheel,
+  lhipyaw,lhiproll,lhippitch,lkneepitch,lanklepitch,lankleroll,LWheel
+]
+
+# Not a fixed based robot
+fixed: false
+# Change the default configuration
+stance_deprecated:
+  rhippitch: [-0.3]
+  rkneepitch: [0.6]
+  ranklepitch: [0.3]
+  lhippitch: [-0.3]
+  lkneepitch: [0.6]
+  lanklepitch: [0.3]
+
+stance:
+  rkneepitch: [0.1]
+  lkneepitch: [0.1]
+
+
+# Change the default attitude
+# for car ingress:
+#default_attitude: [0.9553, 0, 0, -0.2987, 0.2, 0.86, 0.98855]
+default_attitude: [1,0,0,0, 0.2, -0.2, 0.77055]
+convexHulls:
+  torso: [torso, "@CMAKE_CURRENT_SOURCE_DIR@/convex/bit_humanoid/torso-ch.txt"]
+  rkneepitch: [rkneepitch, "@CMAKE_CURRENT_SOURCE_DIR@/convex/bit_humanoid/rkneepitch-ch.txt"]
+  rhipyaw: [rhipyaw, "@CMAKE_CURRENT_SOURCE_DIR@/convex/bit_humanoid/rhipyaw-ch.txt"]
+  rhiproll: [rhiproll, "@CMAKE_CURRENT_SOURCE_DIR@/convex/bit_humanoid/rhiproll-ch.txt"]
+  rhippitch: [rhippitch, "@CMAKE_CURRENT_SOURCE_DIR@/convex/bit_humanoid/rhippitch-ch.txt"]
+  relbowpitch: [relbowpitch, "@CMAKE_CURRENT_SOURCE_DIR@/convex/bit_humanoid/relbowpitch-ch.txt"]
+  rankleroll: [rankleroll, "@CMAKE_CURRENT_SOURCE_DIR@/convex/bit_humanoid/rankleroll-ch.txt"]
+  ranklepitch: [ranklepitch, "@CMAKE_CURRENT_SOURCE_DIR@/convex/bit_humanoid/ranklepitch-ch.txt"]
+  lkneepitch: [lkneepitch, "@CMAKE_CURRENT_SOURCE_DIR@/convex/bit_humanoid/lkneepitch-ch.txt"]
+  lhipyaw: [lhipyaw, "@CMAKE_CURRENT_SOURCE_DIR@/convex/bit_humanoid/lhipyaw-ch.txt"]
+  lhiproll: [lhiproll, "@CMAKE_CURRENT_SOURCE_DIR@/convex/bit_humanoid/lhiproll-ch.txt"]
+  lhippitch: [lhippitch, "@CMAKE_CURRENT_SOURCE_DIR@/convex/bit_humanoid/lhippitch-ch.txt"]
+  lankleroll: [lankleroll, "@CMAKE_CURRENT_SOURCE_DIR@/convex/bit_humanoid/lankleroll-ch.txt"]
+  lanklepitch: [lanklepitch, "@CMAKE_CURRENT_SOURCE_DIR@/convex/bit_humanoid/lanklepitch-ch.txt"]
+  LArm0: [LArm0, "@CMAKE_CURRENT_SOURCE_DIR@/convex/bit_humanoid/LArm0-ch.txt"]
+  LArm1: [LArm1, "@CMAKE_CURRENT_SOURCE_DIR@/convex/bit_humanoid/LArm1-ch.txt"]
+  RArm0: [RArm0, "@CMAKE_CURRENT_SOURCE_DIR@/convex/bit_humanoid/RArm0-ch.txt"]
+  RArm1: [RArm1, "@CMAKE_CURRENT_SOURCE_DIR@/convex/bit_humanoid/RArm1-ch.txt"]
+# Default setting for the collision parameters
+default-col: &default-col
+  iDist: 0.02
+  sDist: 0.01
+  damping: 0
+minimalSelfCollisions:
+
+
+ # Right leg <-> Left leg collision
+  - body1: lhippitch
+    body2: rhippitch
+    <<: *default-col
+  - body1: lkneepitch
+    body2: rkneepitch
+    <<: *default-col
+  - body1: lankleroll
+    body2: rankleroll
+    <<: *default-col
+  - body1: lanklepitch
+    body2: ranklepitch
+    <<: *default-col
+  - body1: lankleroll
+    body2: ranklepitch
+    <<: *default-col
+  - body1: lanklepitch
+    body2: rankleroll
+    <<: *default-col
+bodySensors:
+  - name: FloatingBase
+    parentBody: torso
+    X_b_s:
+      rotation: [0, 0, 0]
+      translation: [0, 0, 0]
+  - name: Accelerometer
+    parentBody: torso
+    X_b_s:
+      rotation: [0, 0, 0]
+      translation: [0, 0, 0]
+forceSensors:
+  - name: RightFootForceSensor
+    parentBody: rankleroll
+    X_p_f:
+      rotation: [-0.0, -0.0, 0]
+      translation: [0.095, -0.0, -0.05]
+  - name: LeftFootForceSensor
+    parentBody: lankleroll
+    X_p_f:
+      rotation: [-0.0, -0.0, 0]
+      translation: [0.095, -0.0, -0.05]
+
+# lipmStabilizer:
+#   leftFootSurface: LeftFoot
+#   rightFootSurface: RightFoot
+#   torsoBodyName: torso
+#   tasks:
+#     com:
+#       active_joints: ["Root",
+#                      "right_leg_hip_1",
+#                      "right_leg_hip_2",
+#                      "right_leg_hip_3",
+#                      "right_leg_knee_1",
+#                      "right_leg_ankle_1",
+#                      "right_leg_ankle_2",
+#                      "left_leg_hip_1",
+#                      "left_leg_hip_2",
+#                      "left_leg_hip_3",
+#                      "left_leg_knee_1",
+#                      "left_leg_ankle_1",
+#                      "left_leg_ankle_2"]
